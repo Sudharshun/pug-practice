@@ -1,0 +1,33 @@
+div#blog-article
+    h2.title#blog-title Pug is cool
+    p.
+        Working in Jade. Multiple lines
+        in paragraph
+        third one
+    ul
+        li Templating
+        li node.js
+        li Express 
+-let length = 5
+div
+    ul
+        - for (let i=0;i<length;i++){
+            li= i+ 'Hello'
+        - }
+div
+- let colours = ['Red','Blue','Green','yellow']
+    h2 Primary-ish clours
+    ul
+        for colour in colours
+            li(id=colour,style="color: #{colour}" data-text="foo") #{colour}
+
+mixin article(title, article, keywords)
+    div#blog-article
+        h2.title#blog-title=title
+        p=article
+        ul#keywords
+            for keyword in keywords
+                li= keyword
+        
++article('foo','article text', ['bar','baz'])
++article('Anotherfoo','More great text', ['blah','blahhh'])
