@@ -10,14 +10,22 @@ router.get('/', function(req, res, next) {
         console.log("Error",err)
         return    
         }
-        console.log("DB Items",albums)
+        console.log("In get DB Items",albums)
         res.render('albums/albums',{albums:albums});
     })
 });
 
 router.get('/new', function(req, res, next) {
   res.render('albums/new_album');
-});
+})
+
+router.post('/', function(req, res, next) {
+    console.log('In POST:Request Body: ',  req.body)
+    albumCollection.insert(req.body,(err,data) =>{
+        res.redirect('albums');
+    })
+  
+})
 
 
 module.exports = router;

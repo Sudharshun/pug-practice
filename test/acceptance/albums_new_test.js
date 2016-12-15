@@ -31,8 +31,8 @@ describe('Given an Albums Application', () => {
 
         it('Then I see a create album button', () => {
             let txtList = element.all(by.tagName('input'))
-            expect(txtList.get(7).getAttribute("type")).toEqual('submit')
-            expect(txtList.get(7).getAttribute("value")).toEqual('Create Album')
+            expect(txtList.get(8).getAttribute("type")).toEqual('submit')
+            expect(txtList.get(8).getAttribute("value")).toEqual('Create Album')
         })
 
         it('Then I see a link that would take back me to the list of albums', () => {
@@ -64,7 +64,7 @@ describe('Given an Albums Application', () => {
         it('Then I see a Radio button with values for starts', () => {
             let radioButtonsSelection = element.all(by.name('albumStars'))   
                   console.log('Radio Button selection list', radioButtonsSelection)
-                                    
+
             expect(radioButtonsSelection.get(0).getAttribute("value")).toEqual('1')
             expect(radioButtonsSelection.get(1).getAttribute("value")).toEqual('2')
             expect(radioButtonsSelection.get(2).getAttribute("value")).toEqual('3')
@@ -72,6 +72,10 @@ describe('Given an Albums Application', () => {
             expect(radioButtonsSelection.get(4).getAttribute("value")).toEqual('5')
         })
 
+        it('Then check box should be dsiplayed ', () => {
+            expect(element(by.name('explicit_contain')).getAttribute("type")).toEqual('checkbox')
+
+        })
 
 
     })
