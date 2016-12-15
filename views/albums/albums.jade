@@ -1,0 +1,15 @@
+div#Album-Title
+    h1 Albums   
+    a(href="/albums/new") New album
+    p
+    table(border="1px solid")
+        thead
+            tr
+                th Artist
+                th Title
+                th Genre
+        for album in albums
+            tr           
+                td #{album.artist}
+                td #{album.albumTitle}
+                td #{album.genre}               

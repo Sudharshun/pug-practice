@@ -1,0 +1,21 @@
+mixin SelectCreator(nameofSelect,optionsList)
+    select(name="#{nameofSelect}")
+        for options in optionsList
+            option(value="#{options}") #{options}
+        
+div#new-album-title
+    h1 Create Album!  
+    p
+    label(for='Artist') Artist &nbsp;&nbsp;
+    input(type='text' name='Artist')
+    p
+    label(for='Album') Album &nbsp;&nbsp;
+    input(type='text' name='Album')
+    p
+    label(for='Genre') Genre &nbsp;&nbsp;
+    +SelectCreator('Genre',['Rock','Alternative','Jazz','Classical','Folk','Disco'])
+    p
+    input(type='submit' value='Create Album')
+    &nbsp;&nbsp;
+    a(href='/albums') Cancel
+
