@@ -1,8 +1,4 @@
-mixin SelectCreator(nameofSelect,optionsList)
-    select(name="#{nameofSelect}")
-        for options in optionsList
-            option(value="#{options}") #{options}
-        
+include ../../mixins/form-helpers
 div#new-album-title
     h1 Create Album!  
     p
@@ -14,6 +10,15 @@ div#new-album-title
     p
     label(for='Genre') Genre &nbsp;&nbsp;
     +SelectCreator('Genre',['Rock','Alternative','Jazz','Classical','Folk','Disco'])
+    p
+    label(for='Stars') Stars &nbsp;&nbsp;
+    p
+        label 1
+         +RadioButtonCreator('albumStars',['1','2','3','4','5'])
+        &nbsp;
+        label 5
+    p
+    label(for='contains_explicit_lyrics') Contains Explicit Lyrics &nbsp;&nbsp;
     p
     input(type='submit' value='Create Album')
     &nbsp;&nbsp;

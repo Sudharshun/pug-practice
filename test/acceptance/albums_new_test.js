@@ -23,12 +23,16 @@ describe('Given an Albums Application', () => {
             expect(labelList.get(0).getText()).toContain('Artist')
             expect(labelList.get(1).getText()).toContain('Album')
             expect(labelList.get(2).getText()).toContain('Genre')
+            expect(labelList.get(3).getText()).toContain('Stars')
+            expect(labelList.get(4).getText()).toContain('1')
+            expect(labelList.get(5).getText()).toContain('5')
+            expect(labelList.get(6).getText()).toContain('Contains Explicit Lyrics')
         })
 
         it('Then I see a create album button', () => {
             let txtList = element.all(by.tagName('input'))
-            expect(txtList.get(2).getAttribute("type")).toEqual('submit')
-            expect(txtList.get(2).getAttribute("value")).toEqual('Create Album')
+            expect(txtList.get(7).getAttribute("type")).toEqual('submit')
+            expect(txtList.get(7).getAttribute("value")).toEqual('Create Album')
         })
 
         it('Then I see a link that would take back me to the list of albums', () => {
@@ -55,6 +59,19 @@ describe('Given an Albums Application', () => {
             expect(txtList.get(1).getAttribute("name")).toEqual('Album')
             expect(txtList.get(1).getAttribute("type")).toEqual('text')
         })
+
+
+        it('Then I see a Radio button with values for starts', () => {
+            let radioButtonsSelection = element.all(by.name('albumStars'))   
+                  console.log('Radio Button selection list', radioButtonsSelection)
+                                    
+            expect(radioButtonsSelection.get(0).getAttribute("value")).toEqual('1')
+            expect(radioButtonsSelection.get(1).getAttribute("value")).toEqual('2')
+            expect(radioButtonsSelection.get(2).getAttribute("value")).toEqual('3')
+            expect(radioButtonsSelection.get(3).getAttribute("value")).toEqual('4')
+            expect(radioButtonsSelection.get(4).getAttribute("value")).toEqual('5')
+        })
+
 
 
     })

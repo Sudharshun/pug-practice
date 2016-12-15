@@ -1,0 +1,8 @@
+mixin SelectCreator(nameofSelect,optionsList)
+    select(name="#{nameofSelect}")
+        for options in optionsList
+            option(value="#{options}") #{options}
+
+mixin RadioButtonCreator(nameofRadioButton,optionsList)
+    for options in optionsList
+        input(type='radio', name='#{nameofRadioButton}', value='#{options}')
