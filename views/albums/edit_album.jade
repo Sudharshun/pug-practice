@@ -1,6 +1,6 @@
 include ../../mixins/form-helpers
 div#new-album-title
-form(name='edit-album' method='PUT' action='/albums')
+form(name='edit-album' method='POST' action='/albums/#{album._id}?_method=PUT')
 	h1 Edit Album:
 	p
 	label(for='Artist') Artist &nbsp;&nbsp;
@@ -10,7 +10,7 @@ form(name='edit-album' method='PUT' action='/albums')
 	input(type='text' name='Album' value="#{album.Album}")
 	p
 	label(for='Genre') Genre &nbsp;&nbsp;
-	+SelectCreator('Genre',['Rock','Alternative','Jazz','Classical','Folk','Disco'])
+	+SelectCreator('Genre',['Rock','Alternative','Jazz','Classical','Folk','Disco'],'Rock')
 	p
 	label(for='Stars') Stars &nbsp;&nbsp;
 	p

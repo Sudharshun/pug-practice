@@ -6,11 +6,9 @@ const albumCollection = require(path.resolve('config/database')).get('albums')
 router.get('/', function(req, res, next) {
  
     albumCollection.find({},(err,albums)=>{
-        if(err){
-        console.log("Error",err)
+        if(err){        
         return    
-        }
-        console.log("In get DB Items",albums)
+        }        
         res.render('albums/albums',{albums:albums});
     })
 });
@@ -20,7 +18,7 @@ router.get('/new', function(req, res, next) {
 })
 
 router.post('/', function(req, res, next) {
-    console.log('In POST:Request Body: ',  req.body)
+    
     albumCollection.insert(req.body,(err,data) =>{
         res.redirect('albums');
     })
@@ -29,7 +27,7 @@ router.post('/', function(req, res, next) {
 
 
 router.get('/:id', function(req, res, next){    
-    console.log("Showing album for",req.params.id)
+    
   albumCollection.findOne({_id : req.params.id}, (err, album) => {     
     res.render('albums/show_album', {album: album})
   })
@@ -39,6 +37,17 @@ router.get('/:id/edit', function(req, res, next) {
   albumCollection.findOne({_id : req.params.id}, (err, album) => {     
     res.render('albums/edit_album', {album: album})
     })
+})
+
+router.put('/:id', function(req, res, next) {
+    console.log('In POST:Request Body: ',  req.body)
+    albumCollection.findAndModify({
+        'query': {_id: req.params.id},
+        'update': {'$set': req.body}
+            },(err,data) => {
+        res.redirect('/albums');
+    })
+  
 })
 
 module.exports = router
