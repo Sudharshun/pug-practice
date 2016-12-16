@@ -28,12 +28,17 @@ router.post('/', function(req, res, next) {
 })
 
 
-router.get('/:id', function(req, res, next){
-    console.log("In get id ")
-  albumCollection.findOne({_id : req.params.id}, (err, album) => {
-      console.log("Found Id",album)
+router.get('/:id', function(req, res, next){    
+    console.log("Showing album for",req.params.id)
+  albumCollection.findOne({_id : req.params.id}, (err, album) => {     
     res.render('albums/show_album', {album: album})
   })
 })
 
-module.exports = router;
+router.get('/:id/edit', function(req, res, next) {
+  albumCollection.findOne({_id : req.params.id}, (err, album) => {     
+    res.render('albums/edit_album', {album: album})
+    })
+})
+
+module.exports = router

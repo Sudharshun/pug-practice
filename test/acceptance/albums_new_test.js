@@ -63,7 +63,7 @@ describe('Given an Albums Application', () => {
 
         it('Then I see a Radio button with values for starts', () => {
             let radioButtonsSelection = element.all(by.name('albumStars'))   
-                  console.log('Radio Button selection list', radioButtonsSelection)
+            //      console.log('Radio Button selection list', radioButtonsSelection)
 
             expect(radioButtonsSelection.get(0).getAttribute("value")).toEqual('1')
             expect(radioButtonsSelection.get(1).getAttribute("value")).toEqual('2')
