@@ -42,18 +42,18 @@ describe('Given an Albums Application', () => {
     })
 
     it('Then I see a link that would take me to create a new albums', () => {
-      browser.get('/albums')
+      //browser.get('/albums')
       expect(element(by.tagName('a')).getAttribute('href')).toContain('/albums/new')
     })
 
     it('Then I see a table with a list of current albums', () => {
-        browser.get('/albums')
+        //browser.get('/albums')
       expect(element(by.tagName('table')).isPresent()).toBeTruthy()
     })
    
 
     it('Then I see a listing of Albums from the database', () => { 
-      browser.get('/albums');
+      //browser.get('/albums');
         expect(element(by.tagName('td')).getText()).toEqual('Rock')
      })
 

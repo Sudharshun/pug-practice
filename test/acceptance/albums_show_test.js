@@ -28,18 +28,21 @@ describe('Given an Albums Application', () => {
     })
 
 
-    describe('Given when I visit show album page', () => {
+    describe('Given I visit show album page', () => {
 
         it('Then I show album details with heading Showing Album', () => {
             browser.get('/albums/5555fb55c5ac555bad5e5555')
             expect(element(by.tagName('h1')).getText()).toContain('Showing Album')
         })
 
-
-
         it('Then I show album details and check if edit link exists', () => {
-            browser.get('/albums/5555fb55c5ac555bad5e5555')
+            //browser.get('/albums/5555fb55c5ac555bad5e5555')
             expect(element(by.tagName('a')).getAttribute('href')).toContain('edit')
+        })
+
+        it('Then I show album details and check if delete button exists', () => {
+            //browser.get('/albums/5555fb55c5ac555bad5e5555')
+            expect(element(by.tagName('input')).getAttribute('value')).toContain('Delete')
         })
     })
 })
