@@ -5,9 +5,9 @@ const http = require('http')
 const app = require(path.resolve('app'))
 const db = require(path.resolve('config/database')).get('albums')
  var album = {
-    genre : 'Self Indulgence',
-    artist : 'Me',
-    name : 'I am the Best!'
+    Genre : 'Rock',
+    Artist : 'Me',
+    Album : 'I am the Best!'
   }
 
 
@@ -54,7 +54,7 @@ describe('Given an Albums Application', () => {
 
     it('Then I see a listing of Albums from the database', () => { 
       browser.get('/albums');
-        expect(element(by.tagName('td')).getText()).toEqual('Me')
+        expect(element(by.tagName('td')).getText()).toEqual('Rock')
      })
 
 
