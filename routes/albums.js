@@ -28,4 +28,12 @@ router.post('/', function(req, res, next) {
 })
 
 
+router.get('/:id', function(req, res, next){
+    console.log("In get id ")
+  albumCollection.findOne({_id : req.params.id}, (err, album) => {
+      console.log("Found Id",album)
+    res.render('albums/show_album', {album: album})
+  })
+})
+
 module.exports = router;

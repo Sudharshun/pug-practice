@@ -5,11 +5,13 @@ div#Album-Title
     table(border="1px solid")
         thead
             tr
-                th Artist
-                th Title
                 th Genre
+                th Artist
+                th Album                
         for album in albums
             tr           
+                td #{album.Genre}
                 td #{album.Artist}
-                td #{album.Album}
-                td #{album.Genre}               
+                td 
+                    a(href="/albums/#{album._id}") #{album.Album}
+                              
